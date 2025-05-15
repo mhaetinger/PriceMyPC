@@ -9,14 +9,22 @@ const geist = Geist({
 });
 
 const theme = createTheme({
-  colorSchemes: { light: true, dark: true },
+  colorSchemes: { light: true },
   cssVariables: {
     colorSchemeSelector: "class",
   },
   typography: {
     fontFamily: geist.style.fontFamily,
   },
-  components: {},
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        textPrimary: {
+          color: "white",
+        },
+      },
+    },
+  },
 });
 
 export default theme;

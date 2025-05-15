@@ -1,5 +1,5 @@
 import theme from "@/theme";
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -18,14 +18,15 @@ export const metadata: Metadata = {
   description: "Site to review the value of your pc",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" style={{ backgroundColor: "#c7ede8" }}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <CssBaseline />
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </body>
     </html>
